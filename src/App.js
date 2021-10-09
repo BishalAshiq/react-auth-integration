@@ -4,11 +4,16 @@ import Header  from './Components/Header/Header';
 import Home  from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
+import AuthProvider from './context/AuthProvider';
+import Shipping from './Components/Shipping/Shipping';
+import PrivetRoute from './Components/PrivetRoute.js/PrivetRoute';
+import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+     <AuthProvider>
+     <BrowserRouter>
       <Header></Header>
       <Switch>
         <Route exact path="/">
@@ -23,8 +28,15 @@ function App() {
         <Route path="/register">
            <Register></Register>
         </Route>
+        <PrivetRoute path="/shipping">
+            <Shipping></Shipping>
+        </PrivetRoute>
+        <PrivetRoute path="/placeorder">
+          <PlaceOrder></PlaceOrder>
+        </PrivetRoute>
       </Switch>
       </BrowserRouter>
+     </AuthProvider>
     </div>
   );
 }

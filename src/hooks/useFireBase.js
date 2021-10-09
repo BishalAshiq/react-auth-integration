@@ -12,6 +12,7 @@ const useFireBase = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+   
     const  signInUsingGoogle = () => {
     signInWithPopup(auth, googleProvider)
     .then(result =>{
